@@ -58,6 +58,10 @@ public class DataTypeUtils {
         } else {
             family = sqlTypeName.getFamily();
         }
+        //获取不到类型时，默认为 String
+        if(null == family){
+            family = SqlTypeFamily.STRING;
+        }
         switch (family) {
             case NUMERIC:
                 return ValueType.NUMERIC;
